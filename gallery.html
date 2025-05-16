@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gallery - Bella Antonova</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Font Awesome CDN for social icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <style>
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .gallery img {
+      width: 150px;
+      height: 100px;
+      object-fit: cover;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: transform 0.2s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Social media icon styles */
+    .social-media a {
+      font-size: 24px;
+      margin-right: 15px;
+      color: #000;
+      transition: color 0.3s ease;
+      text-decoration: none;
+    }
+
+    .social-media a:hover {
+      color: #0077b6;
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none; 
+      position: fixed;
+      z-index: 10;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 8px;
+    }
+
+    .modal:target {
+      display: flex;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <div>
+         <h1 class="title">Bella<br>Antonova<br></h1>
+        <p class="subtitle">Artist</p>
+        <ul class="nav-links">
+          <li><a href="index.html">Recent Works</a></li>
+          <li><a href="gallery.html" class="active">Gallery</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="social-media">
+        <a href="https://instagram.com/yourhandle" target="_blank" aria-label="Instagram" rel="noopener">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://facebook.com/yourhandle" target="_blank" aria-label="Facebook" rel="noopener">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </div>
+    </aside>
+
+    <main class="content">
+      
+      <div class="gallery">
+        <a href="#img1"><img src="images/artwork1-thumb.jpg" alt="Artwork 1" /></a>
+        <a href="#img2"><img src="images/artwork2-thumb.jpg" alt="Artwork 2" /></a>
+        <a href="#img3"><img src="images/artwork3-thumb.jpg" alt="Artwork 3" /></a>
+        <a href="#img4"><img src="images/artwork4-thumb.jpg" alt="Artwork 4" /></a>
+        <a href="#img5"><img src="images/artwork5-thumb.jpg" alt="Artwork 5" /></a>
+        <a href="#img6"><img src="images/artwork6-thumb.jpg" alt="Artwork 6" /></a>
+        <a href="#img7"><img src="images/artwork7-thumb.jpg" alt="Artwork 7" /></a>
+        <a href="#img8"><img src="images/artwork8-thumb.jpg" alt="Artwork 8" /></a>
+        <a href="#img9"><img src="images/artwork9-thumb.jpg" alt="Artwork 9" /></a>
+        <a href="#img10"><img src="images/artwork10-thumb.jpg" alt="Artwork 10" /></a>
+      </div>
+
+      <!-- Modal images -->
+      <div id="img1" class="modal" tabindex="-1">
+        <a href="#gallery" class="close"></a>
+        <img src="images/artwork1.jpg" alt="Artwork 1" />
+      </div>
+      <div id="img2" class="modal" tabindex="-1">
+        <a href="#gallery" class="close"></a>
+        <img src="images/artwork2.jpg" alt="Artwork 2" />
+      </div>
+      <div id="img3" class="modal" tabindex="-1">
+        <a href="#gallery" class="close"></a>
+        <img src="images/artwork3.jpg" alt="Artwork 3" />
+      </div>
+      <div id="img4" class="modal" tabindex="-1">
+        <a href="#gallery" class="close"></a>
+        <img src="images/artwork4.jpg" alt="Artwork 4" />
+      </div>
+      <div id="img5" class="modal" tabindex="-1">
+        <a href="#gallery" class="close"></a>
+        <img src="images/artwork5.jpg" alt="Artwork 5" />
+      </div>
+      <div id="img6" class="modal" tabindex="-1">
+        <a href="#gallery" class="close"></a>
+        <img src="images/artwork6.jpg" alt="Artwork 6" />
+      </div>
+      <div id="img7" class="modal" tabindex="-1">
+        <a href="#gallery" class="close"></a>
+        <img src="images/artwork7.jpg" alt="Artwork 7" />
+      </div>
+      <div id="img8" class="modal" tabindex="-1">
+        <a href="#gallery" class="close"></a>
+        <img src="images/artwork8.jpg" alt="Artwork 8" />
+      </div>
+      <div id="img9" class="modal" tabindex="-1">
+        <a href="#gallery" class="close"></a>
+        <img src="images/artwork9.jpg" alt="Artwork 9" />
+      </div>
+      <div id="img10" class="modal" tabindex="-1">
+        <a href="#gallery" class="close"></a>
+        <img src="images/artwork10.jpg" alt="Artwork 10" />
+		</div>
+</main>
+
+</div> 
+</body> 
+</html>

@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Avenir:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Avenir', sans-serif;
+  background-color: #fafafa;
+  color: #222;
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 180px;
+  background: #fff;
+  border-right: 0px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem 1.5rem;
+}
+
+.title {
+  margin: 0;
+  font-size: 2.0rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.subtitle {
+  margin: 0.2rem 0 1.5rem 0;
+  font-weight: 200;
+  color: #666;
+}
+
+.nav-links {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 0 2rem 0;
+}
+
+.nav-links li {
+  margin-bottom: 1rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  font-size: 0.8rem;
+  display: block;
+  padding: 0.3rem 0;
+  border-left: 4px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  border-left-color: #ff4a57;
+  color: #ff4a57;
+}
+
+/* Social Media Icons */
+.social-media a {
+  font-size: 24px;        /* icon size */
+  margin-right: 15px;
+  color: #000;            /* icon color */
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.social-media a:hover {
+  color: #0077b6;         /* color on hover */
+}
+
+/* Main content */
+.content {
+  flex-grow: 1;
+  padding: 2rem 3rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+h2 {
+  margin-top: 0;
+  font-weight: 700;
+  color: #333;
+}
+
+.gallery-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* space between thumbnails */
+  justify-content: center;
+}
+
+.gallery-grid img {
+  width: 120px; /* or smaller, adjust as needed */
+  height: 80px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: transform 0.3s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 8px rgba(0,0,0,0.3);
+}
+.thumb {
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  outline: none;
+}
+
+.thumb img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.thumb:hover img,
+.thumb:focus img {
+  transform: scale(1.05);
+  outline: none;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top:0; left:0; right:0; bottom:0;
+  background: rgba(0,0,0,0.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modal img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 8px;
+  box-shadow: 0 0 30px #fff;
+}
+
+.modal button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  color: #fff;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* About page */
+.about-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.artist-photo {
+  max-width: 300px;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+
+.bio {
+  flex: 1 1 300px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* Contact list */
+.contact-list {
+  list-style: none;
+  padding-left: 0;
+  font-size: 1.1rem;
+}
+
+.contact-list li {
+  margin-bottom: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+    padding: 1rem 2rem;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+  }
+  .nav-links li {
+    margin-bottom: 0;
+  }
+  .content {
+    padding: 1.5rem 1rem;
+    max-width: 100%;
+  }
+  .about-content {
+    flex-direction: column;
+    align-items: center;
+  }
+  .artist-photo {
+    max-width: 80vw;
+  }
+}
+.slideshow {
+  max-width: 600px;
+  margin: 2rem auto 0;
+  cursor: pointer;
+  text-align: center;
+  user-select: none;
+}
+
+.slideshow img {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: opacity 0.5s ease;
+}
+
+.slideshow p {
+  margin-top: 0.5rem;
+  font-weight: 600;
+  color: #555;
+  font-size: 1.1rem;
+}

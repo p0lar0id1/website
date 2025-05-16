@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Recent Works - Bella Antonova</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Font Awesome CDN for social icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <style>
+    .main-image-container {
+      width: 100%;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #mainImage {
+      max-width: 100%;
+      max-height: 70vh;
+      object-fit: contain;
+      display: block;
+      cursor: pointer;
+    }
+
+    #caption {
+      margin-top: 10px;
+      font-size: 1.2rem;
+    }
+
+    /* Social media icon styles */
+    .social-media a {
+      font-size: 24px;
+      margin-right: 15px;
+      color: #000;
+      transition: color 0.3s ease;
+      text-decoration: none;
+    }
+
+    .social-media a:hover {
+      color: #0077b6;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <div>
+        <h1 class="title">Bella<br>Antonova<br></h1>
+        <p class="subtitle">Artist</p>
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Recent Works</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="social-media">
+        <a href="https://instagram.com/yourhandle" target="_blank" aria-label="Instagram" rel="noopener">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://facebook.com/yourhandle" target="_blank" aria-label="Facebook" rel="noopener">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </div>
+    </aside>
+
+    <main class="content">
+      
+      <div class="main-image-container" id="imageContainer">
+        <img id="mainImage" src="images/artwork1.jpg" alt="caption" />
+        <p id="caption">caption</p>
+      </div>
+    </main>
+  </div>
+  <script>
+    const images = [
+      { src: "images/artwork1.jpg", caption: "Artwork 1" },
+      { src: "images/artwork2.jpg", caption: "Artwork 2" }, 
+      { src: "images/artwork3.jpg", caption: "Artwork 3" },
+      { src: "images/artwork4.jpg", caption: "Artwork 4" },
+      { src: "images/artwork5.jpg", caption: "Artwork 5" },
+      { src: "images/artwork6.jpg", caption: "Artwork 6" },
+      { src: "images/artwork7.jpg", caption: "Artwork 7" },
+      { src: "images/artwork8.jpg", caption: "Artwork 8" },
+      { src: "images/artwork9.jpg", caption: "Artwork 9" },
+      { src: "images/artwork10.jpg", caption: "Artwork 10" },
+    ];
+
+    let current = 0;
+    const imgEl = document.getElementById("mainImage");
+    const captionEl = document.getElementById("caption");
+    const container = document.getElementById("imageContainer");
+
+    container.addEventListener("click", () => {
+      current = (current + 1) % images.length;
+      imgEl.src = images[current].src;
+      captionEl.textContent = images[current].caption;
+    });
+  </script>
+</body>
+</html>
