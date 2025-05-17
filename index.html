@@ -46,6 +46,21 @@
     .social-media a:hover {
       color: #0077b6;
     }
+@keyframes fadeInOnce {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+#mainImage {
+  opacity: 1;
+  animation: fadeInOnce 1.2s ease-in;
+  transition: opacity 0.8s ease-in-out;
+}
+
+#mainImage.fade-out {
+  opacity: 0;
+}
+}
   </style>
 </head>
 <body>
@@ -98,11 +113,20 @@
     const captionEl = document.getElementById("caption");
     const container = document.getElementById("imageContainer");
 
-    container.addEventListener("click", () => {
-      current = (current + 1) % images.length;
-      imgEl.src = images[current].src;
-      captionEl.textContent = images[current].caption;
-    });
+  container.addEventListener("click", () => {
+  // Fade out
+  imgEl.classList.add("fade-out");
+
+  // Wait for the fade-out to complete
+  setTimeout(() => {
+    current = (current + 1) % images.length;
+    imgEl.src = images[current].src;
+    captionEl.textContent = images[current].caption;
+
+    // Fade back in
+    imgEl.classList.remove("fade-out");
+  }, 300); // Time matches CSS transition duration
+});
   </script>
 </body>
 </html>
