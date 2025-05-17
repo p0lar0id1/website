@@ -1,3 +1,4 @@
+<!-- File: index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,76 +7,24 @@
   <title>Recent Works - Bella Antonova</title>
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
-  <!-- Font Awesome CDN for social icons -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-  />
-  <style>
-    .main-image-container {
-      width: 100%;
-      height: 80vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    #mainImage {
-      max-width: 100%;
-      max-height: 70vh;
-      object-fit: contain;
-      display: block;
-      cursor: pointer;
-    }
-
-    #caption {
-      margin-top: 10px;
-      font-size: 1.2rem;
-    }
-
-    /* Social media icon styles */
-    .social-media a {
-      font-size: 24px;
-      margin-right: 15px;
-      color: #000;
-      transition: color 0.3s ease;
-      text-decoration: none;
-    }
-
-    .social-media a:hover {
-      color: #0077b6;
-    }
-@keyframes fadeInOnce {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-#mainImage {
-  opacity: 1;
-  animation: fadeInOnce 1.2s ease-in;
-  transition: opacity 0.8s ease-in-out;
-}
-
-#mainImage.fade-out {
-  opacity: 0;
-}
-}
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Avenir:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
   <div class="container">
     <aside class="sidebar">
-      <div>
-        <h1 class="title">Bella<br>Antonova<br></h1>
+      <div class="sidebar-header">
+        <h1 class="title">Bella<br>Antonova</h1>
         <p class="subtitle">Artist</p>
+      </div>
+      <nav>
         <ul class="nav-links">
           <li><a href="index.html" class="active">Recent Works</a></li>
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
-      </div>
+      </nav>
       <div class="social-media">
         <a href="https://instagram.com/yourhandle" target="_blank" aria-label="Instagram" rel="noopener">
           <i class="fab fa-instagram"></i>
@@ -87,76 +36,70 @@
     </aside>
 
     <main class="content">
-      
-<div class="main-image-container" id="imageContainer">
-  <img id="mainImage" src="images/artwork1.jpg" alt="Artwork 1" />
-  <p id="caption">Artwork 1</p>
-</div>
+      <div class="main-image-container" id="imageContainer">
+        <img id="mainImage" src="images/artwork1.jpg" alt="Artwork 1" />
+        <p id="caption">Artwork 1</p>
+      </div>
     </main>
   </div>
- <script>
-  const images = [
-    { src: "images/artwork1.jpg", caption: "Artwork 1" },
-    { src: "images/artwork2.jpg", caption: "Artwork 2" },
-    { src: "images/artwork3.jpg", caption: "Artwork 3" },
-    { src: "images/artwork4.jpg", caption: "Artwork 4" },
-    { src: "images/artwork5.jpg", caption: "Artwork 5" },
-    { src: "images/artwork6.jpg", caption: "Artwork 6" },
-    { src: "images/artwork7.jpg", caption: "Artwork 7" },
-    { src: "images/artwork8.jpg", caption: "Artwork 8" },
-    { src: "images/artwork9.jpg", caption: "Artwork 9" },
-    { src: "images/artwork10.jpg", caption: "Artwork 10" }
-  ];
 
-  let current = 0;
-  const imgEl = document.getElementById("mainImage");
-  const captionEl = document.getElementById("caption");
-  const container = document.getElementById("imageContainer");
+  <script>
+    const images = [
+      { src: "images/artwork1.jpg", caption: "Artwork 1" },
+      { src: "images/artwork2.jpg", caption: "Artwork 2" },
+      { src: "images/artwork3.jpg", caption: "Artwork 3" },
+      { src: "images/artwork4.jpg", caption: "Artwork 4" },
+      { src: "images/artwork5.jpg", caption: "Artwork 5" },
+      { src: "images/artwork6.jpg", caption: "Artwork 6" },
+      { src: "images/artwork7.jpg", caption: "Artwork 7" },
+      { src: "images/artwork8.jpg", caption: "Artwork 8" },
+      { src: "images/artwork9.jpg", caption: "Artwork 9" },
+      { src: "images/artwork10.jpg", caption: "Artwork 10" }
+    ];
 
-  function showImage(index) {
-    current = (index + images.length) % images.length; // wrap around
-    imgEl.src = images[current].src;
-    captionEl.textContent = images[current].caption;
-  }
+    let current = 0;
+    const imgEl = document.getElementById("mainImage");
+    const captionEl = document.getElementById("caption");
+    const container = document.getElementById("imageContainer");
 
-  // Swipe detection variables
-  let touchStartX = 0;
-  let touchEndX = 0;
-  const swipeThreshold = 50; // minimum px swipe to consider
+    function showImage(index) {
+      current = (index + images.length) % images.length;
+      imgEl.classList.add("fade-out");
+      setTimeout(() => {
+        imgEl.src = images[current].src;
+        captionEl.textContent = images[current].caption;
+        imgEl.classList.remove("fade-out");
+      }, 200);
+    }
 
-  container.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-  });
+    // Touch swipe
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const swipeThreshold = 50;
 
-  container.addEventListener('touchend', (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
-  });
+    container.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    });
 
-  function handleSwipe() {
-    const deltaX = touchEndX - touchStartX;
-    if (Math.abs(deltaX) > swipeThreshold) {
-      if (deltaX > 0) {
-        // Swipe right -> previous image
-        showImage(current - 1);
-      } else {
-        // Swipe left -> next image
-        showImage(current + 1);
+    container.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    });
+
+    function handleSwipe() {
+      const deltaX = touchEndX - touchStartX;
+      if (Math.abs(deltaX) > swipeThreshold) {
+        showImage(current + (deltaX > 0 ? -1 : 1));
       }
     }
-  }
 
-  // Optional: allow keyboard arrow keys for desktop users
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') {
-      showImage(current - 1);
-    } else if (e.key === 'ArrowRight') {
-      showImage(current + 1);
-    }
-  });
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') showImage(current - 1);
+      if (e.key === 'ArrowRight') showImage(current + 1);
+    });
 
-  // Initialize with first image
-  showImage(current);
-</script>
+    showImage(current);
+  </script>
 </body>
 </html>
