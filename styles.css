@@ -30,9 +30,10 @@ body, html {
 }
 
 .title {
+  font-family: 'Sacramento', cursive;
   margin: 0;
   font-size: 2.0rem;
-  font-weight: 700;
+  font-weight: 400;
   color: #333;
 }
 
