@@ -36,6 +36,7 @@ img {
 }
 
 .sidebar {
+  font-family: 'Abel', sans-serif;
   width: 250px;
   background-color: #f4f4f4;
   padding: 2rem;
