@@ -16,25 +16,27 @@
     /* Sidebar and general styles omitted for brevity - keep your existing styles */
 
     .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-    }
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 thumbnails per row */
+  gap: 20px;
+  justify-items: center;
+  padding: 20px;
+}
 
-    .gallery img {
-      width: 150px;
-      height: 100px;
-      object-fit: cover;
-      cursor: pointer;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-      transition: transform 0.2s ease;
-    }
+.gallery img {
+  width: 100%;
+  max-width: 300px; /* Control thumbnail size */
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+}
 
-    .gallery img:hover {
-      transform: scale(1.05);
-    }
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
 
     /* Overlay styles */
     .overlay {
