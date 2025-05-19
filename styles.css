@@ -133,12 +133,12 @@ img {
 
 /* Gallery */
 .gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center; /* <-- Center horizontally */
-  align-items: center;      /* <-- Optional: center vertically in container */
-  padding: 20px;            /* Add spacing if needed */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns */
+  gap: 15px;
+  justify-content: center;
+  padding: 20px;
+}
 }
 
 .gallery img {
