@@ -47,7 +47,7 @@ img {
 
 .sidebar .title {
   font-family: 'Sacramento', cursive;
-  font-size: 2.8rem;
+  font-size: 2.5rem;
   line-height: 1.2;
   margin-bottom: 0.25rem;
 }
@@ -287,4 +287,11 @@ img {
 #mainImage {
   transition: opacity 0.3s ease;
   opacity: 1;
+}
+.title {
+  font-family: 'Sacramento', cursive;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  transform: scaleY(0.95); /* Slightly reduce vertical thickness */
+  display: inline-block;
 }
