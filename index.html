@@ -168,6 +168,45 @@
     }
   </style>
 </head>
+<script>
+// Basic slider functionality
+let slideIndex = 0;
+const slides = document.querySelectorAll(".slide");
+const prev = document.querySelector(".prev");
+const next = document.querySelector(".next");
+
+function showSlide(n) {
+  slides.forEach((slide, i) => {
+    slide.classList.remove("active");
+    if (i === n) slide.classList.add("active");
+  });
+}
+
+function nextSlide() {
+  slideIndex = (slideIndex + 1) % slides.length;
+  showSlide(slideIndex);
+}
+
+function prevSlide() {
+  slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+  showSlide(slideIndex);
+}
+
+next.addEventListener("click", nextSlide);
+prev.addEventListener("click", prevSlide);
+
+// Disable right-click + drag on images
+document.addEventListener("contextmenu", function(e) {
+  if (e.target.tagName === "IMG") {
+    e.preventDefault();
+  }
+});
+document.addEventListener("dragstart", function(e) {
+  if (e.target.tagName === "IMG") {
+    e.preventDefault();
+  }
+});
+</script>
 <body>
   <div class="slider">
   <div class="slide active">
@@ -259,4 +298,5 @@
 </footer>
 </body>
 </html>
+
 
