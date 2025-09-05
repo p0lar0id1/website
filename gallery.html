@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Explore the mixed media gallery of Bella Antonova, featuring textured, emotional, and architectural works." />
 
-  <!-- Open Graph -->
+  <!-- Open Graph for Social Sharing -->
   <meta property="og:title" content="Bella Antonova – Gallery" />
   <meta property="og:description" content="Explore the mixed media gallery of Bella Antonova, featuring textured, emotional, and architectural works." />
   <meta property="og:image" content="https://www.bellaantonova.com/images/artist_photo.jpg" />
@@ -18,10 +18,25 @@
   <meta name="twitter:description" content="Discover Bella Antonova’s latest gallery work in acrylic, oil, and mixed media." />
   <meta name="twitter:image" content="https://www.bellaantonova.com/images/artist_photo.jpg" />
 
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Bella Antonova",
+    "jobTitle": "Contemporary Artist",
+    "url": "https://www.bellaantonova.com",
+    "sameAs": [
+      "https://www.instagram.com/bella_antonova_art",
+      "https://www.facebook.com/yourhandle"
+    ]
+  }
+  </script>
+
   <!-- Page Title -->
   <title>Art Gallery | Bella Antonova's Works</title>
 
-  <!-- Stylesheets -->
+  <!-- Stylesheets & Fonts -->
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
@@ -36,19 +51,15 @@
       padding: 20px;
     }
 
-    /* Protected Image Wrapper */
     .protected-image {
       position: relative;
       display: inline-block;
-      width: 100%;
       cursor: pointer;
     }
 
     .protected-image img {
       width: 100%;
       max-width: 300px;
-      height: auto;
-      object-fit: cover;
       border-radius: 8px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.15);
       transition: transform 0.2s ease;
@@ -62,25 +73,21 @@
     .protected-image::after {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: transparent;
-      z-index: 2;
+      top:0; left:0;
+      width:100%; height:100%;
+      background:transparent;
+      z-index:2;
     }
 
     .overlay {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: rgba(0,0,0,0.8);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
+      top:0; left:0;
+      width:100vw; height:100vh;
+      background: rgba(0,0,0,0.8);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:1000;
     }
 
     .overlay img {
@@ -91,21 +98,18 @@
     }
 
     .close-btn {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      font-size: 2.5rem;
-      color: white;
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      z-index: 1100;
-      font-weight: bold;
+      position:absolute;
+      top:20px; right:30px;
+      font-size:2.5rem;
+      color:white;
+      background:transparent;
+      border:none;
+      cursor:pointer;
+      z-index:1100;
+      font-weight:bold;
     }
 
-    .close-btn:hover {
-      color: #ff5555;
-    }
+    .close-btn:hover { color:#ff5555; }
   </style>
 </head>
 <body>
@@ -122,45 +126,31 @@
         </ul>
       </div>
       <div class="social-media">
-        <a href="https://instagram.com/bella_antonova_art" target="_blank" aria-label="Instagram" rel="noopener">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://facebook.com/yourhandle" target="_blank" aria-label="Facebook" rel="noopener">
-          <i class="fab fa-facebook"></i>
-        </a>
+        <a href="https://instagram.com/bella_antonova_art" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://facebook.com/yourhandle" target="_blank"><i class="fab fa-facebook"></i></a>
       </div>
     </aside>
 
     <main class="content">
       <div class="gallery">
-        <!-- Wrap each thumbnail in protected-image -->
-        <div class="protected-image"><img src="images/artwork1.jpg" alt="Artwork 1" class="thumbnail" /></div>
-        <div class="protected-image"><img src="images/artwork2.jpg" alt="Artwork 2" class="thumbnail" /></div>
-        <div class="protected-image"><img src="images/artwork3.jpg" alt="Artwork 3" class="thumbnail" /></div>
-        <div class="protected-image"><img src="images/artwork4.jpg" alt="Artwork 4" class="thumbnail" /></div>
-        <div class="protected-image"><img src="images/artwork5.jpg" alt="Artwork 5" class="thumbnail" /></div>
-        <div class="protected-image"><img src="images/artwork6.jpg" alt="Artwork 6" class="thumbnail" /></div>
-        <div class="protected-image"><img src="images/artwork7.jpg" alt="Artwork 7" class="thumbnail" /></div>
-        <div class="protected-image"><img src="images/artwork8.jpg" alt="Artwork 8" class="thumbnail" /></div>
-        <div class="protected-image"><img src="images/artwork9.jpg" alt="Artwork 9" class="thumbnail" /></div>
-        <div class="protected-image"><img src="images/artwork10.jpg" alt="Artwork 10" class="thumbnail" /></div>
-        <div class="protected-image"><img src="images/artwork11.jpg" alt="Artwork 11" class="thumbnail" /></div>
-        <div class="protected-image"><img src="images/artwork12.jpg" alt="Artwork 12" class="thumbnail" /></div>
-        <div class="protected-image"><img src="images/artwork13.jpg" alt="Artwork 13" class="thumbnail" /></div>
-        <div class="protected-image"><img src="images/artwork14.jpg" alt="Artwork 14" class="thumbnail" /></div>
-        <div class="protected-image"><img src="images/artwork15.jpg" alt="Artwork 15" class="thumbnail" /></div>
-        <div class="protected-image"><img src="images/artwork16.jpg" alt="Artwork 16" class="thumbnail" /></div>
-        <div class="protected-image"><img src="images/artwork17.jpg" alt="Artwork 17" class="thumbnail" /></div>
-        <div class="protected-image"><img src="images/artwork18.jpg" alt="Artwork 18" class="thumbnail" /></div>
-        <div class="protected-image"><img src="images/artwork19.jpg" alt="Artwork 19" class="thumbnail" /></div>
+        <div class="protected-image"><img src="images/artwork1.jpg" alt="Artwork 1" class="thumbnail"></div>
+        <div class="protected-image"><img src="images/artwork2.jpg" alt="Artwork 2" class="thumbnail"></div>
+        <div class="protected-image"><img src="images/artwork3.jpg" alt="Artwork 3" class="thumbnail"></div>
+        <div class="protected-image"><img src="images/artwork4.jpg" alt="Artwork 4" class="thumbnail"></div>
+        <div class="protected-image"><img src="images/artwork5.jpg" alt="Artwork 5" class="thumbnail"></div>
+        <div class="protected-image"><img src="images/artwork6.jpg" alt="Artwork 6" class="thumbnail"></div>
+        <div class="protected-image"><img src="images/artwork7.jpg" alt="Artwork 7" class="thumbnail"></div>
+        <div class="protected-image"><img src="images/artwork8.jpg" alt="Artwork 8" class="thumbnail"></div>
+        <div class="protected-image"><img src="images/artwork9.jpg" alt="Artwork 9" class="thumbnail"></div>
+        <div class="protected-image"><img src="images/artwork10.jpg" alt="Artwork 10" class="thumbnail"></div>
       </div>
     </main>
   </div>
 
-  <!-- Overlay for enlarged image -->
+  <!-- Overlay -->
   <div id="overlay" class="overlay" aria-hidden="true">
     <button id="closeBtn" class="close-btn" aria-label="Close">&times;</button>
-    <img id="overlayImage" src="" alt="Enlarged artwork" />
+    <img id="overlayImage" src="" alt="Enlarged artwork">
   </div>
 
   <script>
@@ -171,22 +161,21 @@
     // Open overlay on thumbnail click
     document.querySelectorAll('.thumbnail').forEach(img => {
       img.addEventListener('click', () => {
-        overlayImage.src = img.src;
+        overlayImage.src = img.src; // Replace with full-size version if available
         overlayImage.alt = img.alt;
         overlay.style.display = 'flex';
         overlay.setAttribute('aria-hidden', 'false');
       });
     });
 
-    // Close overlay on close button click
+    // Close overlay
     closeBtn.addEventListener('click', () => {
       overlay.style.display = 'none';
       overlayImage.src = '';
       overlay.setAttribute('aria-hidden', 'true');
     });
 
-    // Close overlay on clicking outside the image
-    overlay.addEventListener('click', (e) => {
+    overlay.addEventListener('click', e => {
       if (e.target === overlay) {
         overlay.style.display = 'none';
         overlayImage.src = '';
@@ -194,14 +183,9 @@
       }
     });
 
-    // Disable right-click and drag on all images
-    document.addEventListener('contextmenu', function(e) {
-      if (e.target.tagName === "IMG") e.preventDefault();
-    });
-
-    document.addEventListener('dragstart', function(e) {
-      if (e.target.tagName === "IMG") e.preventDefault();
-    });
+    // Protect images
+    document.addEventListener('contextmenu', e => { if(e.target.tagName === "IMG") e.preventDefault(); });
+    document.addEventListener('dragstart', e => { if(e.target.tagName === "IMG") e.preventDefault(); });
   </script>
 
   <footer class="site-footer">
