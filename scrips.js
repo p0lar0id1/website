@@ -1,56 +1,62 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Detect which page we are on by checking body or something else
-  const isIndex = document.querySelector('.gallery') !== null;
-  const isRecentWorks = document.querySelector('.slideshow') !== null;
 
-  if (isIndex) {
-    // Gallery modal logic
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    const modal = document.getElementById('modal');
-    const modalImg = document.getElementById('modal-img');
-    const modalCaption = document.getElementById('modal-caption');
-    const modalClose = document.getElementById('modal-close');
+  // --- Detect Page Type ---
+  const isGallery = document.querySelector('.gallery') !== null;
+  const isSlideshow = document.querySelector('.slideshow') !== null;
 
-    function openModal(img) {
-      modalImg.src = img.dataset.full;
-      modalImg.alt = img.alt;
-      modalCaption.textContent = img.alt;
-      modal.hidden = false;
-      modalClose.focus();
-    }
+  // --- Common: Disable right-click and drag on all images ---
+  document.addEventListener('contextmenu', e => {
+    if (e.target.tagName === "IMG") e.preventDefault();
+  });
+  document.addEventListener('dragstart', e => {
+    if (e.target.tagName === "IMG") e.preventDefault();
+  });
 
-    function closeModal() {
-      modal.hidden = true;
-      modalImg.src = '';
-      modalImg.alt = '';
-    }
+  // --- GALLERY PAGE LOGIC ---
+  if (isGallery) {
+    const overlay = document.getElementById('overlay');
+    const overlayImage = document.getElementById('overlayImage');
+    const closeBtn = document.getElementById('closeBtn');
 
-    galleryItems.forEach(item => {
-      item.addEventListener('click', () => openModal(item));
-      item.addEventListener('keydown', e => {
+    document.querySelectorAll('.thumbnail').forEach(img => {
+      img.addEventListener('click', () => {
+        // Show overlay with full-size image
+        overlayImage.src = img.dataset.full || img.src;
+        overlayImage.alt = img.alt;
+        overlay.style.display = 'flex';
+        overlay.setAttribute('aria-hidden', 'false');
+      });
+
+      img.addEventListener('keydown', e => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          openModal(item);
+          overlayImage.src = img.dataset.full || img.src;
+          overlayImage.alt = img.alt;
+          overlay.style.display = 'flex';
+          overlay.setAttribute('aria-hidden', 'false');
         }
       });
     });
 
-    modalClose.addEventListener('click', closeModal);
+    // Close overlay
+    const closeOverlay = () => {
+      overlay.style.display = 'none';
+      overlayImage.src = '';
+      overlay.setAttribute('aria-hidden', 'true');
+    };
 
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) closeModal();
+    closeBtn.addEventListener('click', closeOverlay);
+    overlay.addEventListener('click', e => {
+      if (e.target === overlay) closeOverlay();
     });
 
     document.addEventListener('keydown', e => {
-      if (!modal.hidden && e.key === 'Escape') {
-        closeModal();
-      }
+      if (e.key === 'Escape' && overlay.style.display === 'flex') closeOverlay();
     });
   }
 
-  if (isRecentWorks) {
-    // Slideshow logic
-    const slideshow = document.querySelector('.slideshow');
+  // --- RECENT WORKS / INDEX SLIDESHOW LOGIC ---
+  if (isSlideshow) {
     const slideshowImage = document.getElementById('slideshowImage');
     const caption = document.getElementById('caption');
 
@@ -63,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let currentIndex = 0;
 
-    function showArtwork(index) {
+    const showArtwork = index => {
       slideshowImage.style.opacity = 0;
       setTimeout(() => {
         slideshowImage.src = artworks[index].src;
@@ -71,14 +77,14 @@ document.addEventListener('DOMContentLoaded', () => {
         caption.textContent = artworks[index].alt;
         slideshowImage.style.opacity = 1;
       }, 300);
-    }
+    };
 
-    slideshow.addEventListener('click', () => {
+    slideshowImage.addEventListener('click', () => {
       currentIndex = (currentIndex + 1) % artworks.length;
       showArtwork(currentIndex);
     });
 
-    slideshow.addEventListener('keydown', e => {
+    slideshowImage.addEventListener('keydown', e => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
         currentIndex = (currentIndex + 1) % artworks.length;
@@ -88,42 +94,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     showArtwork(currentIndex);
   }
-});
-document.addEventListener('DOMContentLoaded', () => {
+
+  // --- OPTIONAL: Update main image from thumbnails if exists ---
   const mainImage = document.getElementById('mainImage');
   const caption = document.getElementById('caption');
-  const thumbnails = document.querySelectorAll('.thumbnail');
-
-  thumbnails.forEach(thumb => {
-    function updateMainImage() {
-      mainImage.src = thumb.dataset.full;
-      mainImage.alt = thumb.alt;
-      caption.textContent = thumb.alt;
-    }
-
-    thumb.addEventListener('click', updateMainImage);
-    thumb.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        updateMainImage();
-      }
+  if (mainImage && caption) {
+    document.querySelectorAll('.thumbnail').forEach(thumb => {
+      const updateMain = () => {
+        mainImage.src = thumb.dataset.full || thumb.src;
+        mainImage.alt = thumb.alt;
+        caption.textContent = thumb.alt;
+      };
+      thumb.addEventListener('click', updateMain);
+      thumb.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          updateMain();
+        }
+      });
     });
-  });
-});
-const overlay = document.getElementById('overlay');
-const overlayImage = document.getElementById('overlayImage');
-const closeBtn = document.getElementById('closeBtn');
+  }
 
-// Assuming your thumbnails have class 'thumbnail'
-document.querySelectorAll('.thumbnail').forEach(img => {
-  img.addEventListener('click', () => {
-    overlayImage.src = img.src.replace('_thumb', ''); // or full image path logic
-    overlay.style.display = 'flex';
-  });
 });
-
-closeBtn.addEventListener('click', () => {
-  overlay.style.display = 'none';
-  overlayImage.src = '';
-});
-
