@@ -1,8 +1,7 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Essential Meta Tags -->
+  <!-- Essential Meta Tags -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Explore the recent works of contemporary artist Bella Antonova, blending texture, emotion, and architectural abstraction in painting and mixed media." />
@@ -27,19 +26,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Bella Antonova",
-  "jobTitle": "Contemporary Artist",
-  "url": "https://www.bellaantonova.com",
-  "sameAs": [
-    "https://www.instagram.com/bella_antonova_art",
-    "https://www.facebook.com/yourhandle"
-  ]
-}
-</script>
+
   <style>
     body, html {
       margin: 0;
@@ -108,25 +95,40 @@
       background: #f5f5f5;
     }
 
-    .main-image-container {
-      text-align: center;
+    /* Protected Image Container */
+    .protected-image {
+      position: relative;
+      display: inline-block;
+      max-width: 100%;
     }
 
-    .main-image-container img {
+    .protected-image img {
       max-width: 100%;
-      height: auto;
       max-height: 80vh;
       border-radius: 10px;
       transition: opacity 0.3s ease;
+      display: block;
     }
 
-    .main-image-container img.fade-out {
+    .protected-image.fade-out img {
       opacity: 0.3;
+    }
+
+    .protected-image::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      z-index: 2;
     }
 
     #caption {
       margin-top: 1rem;
       font-size: 1.1rem;
+      text-align: center;
     }
 
     @media (max-width: 768px) {
@@ -163,7 +165,7 @@
         padding: 1rem;
       }
 
-      .main-image-container img {
+      .protected-image img {
         max-height: 60vh;
       }
     }
@@ -195,46 +197,57 @@
     </aside>
 
     <main class="content">
-      <div class="main-image-container" id="imageContainer">
+      <div class="protected-image" id="imageContainer">
         <img id="mainImage" src="images/artwork1.jpg" alt="Artwork 1" />
         <p id="caption">Artwork 1</p>
       </div>
     </main>
   </div>
 
-<script>
-  const images = [
-    { src: "images/artwork1.jpg", caption: "" },
-    { src: "images/artwork4.jpg", caption: "" },
-    { src: "images/artwork5.jpg", caption: "" },
-    { src: "images/artwork6.jpg", caption: "" },
-    { src: "images/artwork7.jpg", caption: "" },
-    { src: "images/artwork10.jpg", caption: "" }
-  ];
+  <script>
+    const images = [
+      { src: "images/artwork1.jpg", caption: "Artwork 1" },
+      { src: "images/artwork4.jpg", caption: "Artwork 4" },
+      { src: "images/artwork5.jpg", caption: "Artwork 5" },
+      { src: "images/artwork6.jpg", caption: "Artwork 6" },
+      { src: "images/artwork7.jpg", caption: "Artwork 7" },
+      { src: "images/artwork10.jpg", caption: "Artwork 10" }
+    ];
 
-  let current = 0;
-  const imgEl = document.getElementById("mainImage");
-  const captionEl = document.getElementById("caption");
+    let current = 0;
+    const containerEl = document.getElementById("imageContainer");
+    const imgEl = document.getElementById("mainImage");
+    const captionEl = document.getElementById("caption");
 
-  function showImage(index) {
-    current = (index + images.length) % images.length;
-    imgEl.classList.add("fade-out");
-    setTimeout(() => {
-      imgEl.src = images[current].src;
-      captionEl.textContent = images[current].caption;
-      imgEl.classList.remove("fade-out");
-    }, 200);
-  }
+    function showImage(index) {
+      current = (index + images.length) % images.length;
+      containerEl.classList.add("fade-out");
+      setTimeout(() => {
+        imgEl.src = images[current].src;
+        captionEl.textContent = images[current].caption;
+        containerEl.classList.remove("fade-out");
+      }, 200);
+    }
 
-  // Automatically change image every 5 seconds
-  setInterval(() => {
-    showImage(current + 1);
-  }, 5000);
+    // Automatically change image every 5 seconds
+    setInterval(() => {
+      showImage(current + 1);
+    }, 5000);
 
-  showImage(current);
-</script>
-<footer class="site-footer">
-<p>© 2025 Bella Antonova</p>
-</footer>
+    showImage(current);
+
+    // Disable right-click + drag on images
+    document.addEventListener("contextmenu", function(e) {
+      if (e.target.tagName === "IMG") e.preventDefault();
+    });
+
+    document.addEventListener("dragstart", function(e) {
+      if (e.target.tagName === "IMG") e.preventDefault();
+    });
+  </script>
+
+  <footer class="site-footer">
+    <p>© 2025 Bella Antonova</p>
+  </footer>
 </body>
 </html>
