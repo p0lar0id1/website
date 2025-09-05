@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Explore the mixed media gallery of Bella Antonova, featuring textured, emotional, and architectural works." />
 
-  <!-- Open Graph for Facebook/LinkedIn -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Bella Antonova – Gallery" />
   <meta property="og:description" content="Explore the mixed media gallery of Bella Antonova, featuring textured, emotional, and architectural works." />
   <meta property="og:image" content="https://www.bellaantonova.com/images/artist_photo.jpg" />
@@ -27,28 +27,47 @@
   <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-  <!-- Inline Gallery + Social Styles -->
   <style>
     .gallery {
       display: grid;
-      grid-template-columns: repeat(4, 1fr); /* 4 thumbnails per row */
+      grid-template-columns: repeat(4, 1fr);
       gap: 20px;
       justify-items: center;
       padding: 20px;
     }
 
-    .gallery img {
+    /* Protected Image Wrapper */
+    .protected-image {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    .protected-image img {
       width: 100%;
       max-width: 300px;
       height: auto;
       object-fit: cover;
       border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
       transition: transform 0.2s ease;
+      display: block;
     }
 
-    .gallery img:hover {
+    .protected-image img:hover {
       transform: scale(1.05);
+    }
+
+    .protected-image::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      z-index: 2;
     }
 
     .overlay {
@@ -82,23 +101,10 @@
       cursor: pointer;
       z-index: 1100;
       font-weight: bold;
-      line-height: 1;
     }
 
     .close-btn:hover {
       color: #ff5555;
-    }
-
-    .social-media a {
-      font-size: 24px;
-      margin-right: 15px;
-      color: #000;
-      transition: color 0.3s ease;
-      text-decoration: none;
-    }
-
-    .social-media a:hover {
-      color: #0077b6;
     }
   </style>
 </head>
@@ -115,7 +121,7 @@
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
-       <div class="social-media">
+      <div class="social-media">
         <a href="https://instagram.com/bella_antonova_art" target="_blank" aria-label="Instagram" rel="noopener">
           <i class="fab fa-instagram"></i>
         </a>
@@ -127,25 +133,26 @@
 
     <main class="content">
       <div class="gallery">
-        <img class="thumbnail" src="images/artwork1.jpg" alt="Artwork 1" />
-        <img class="thumbnail" src="images/artwork2.jpg" alt="Artwork 2" />
-        <img class="thumbnail" src="images/artwork3.jpg" alt="Artwork 3" />
-        <img class="thumbnail" src="images/artwork4.jpg" alt="Artwork 4" />
-        <img class="thumbnail" src="images/artwork5.jpg" alt="Artwork 5" />
-        <img class="thumbnail" src="images/artwork6.jpg" alt="Artwork 6" />
-        <img class="thumbnail" src="images/artwork7.jpg" alt="Artwork 7" />
-        <img class="thumbnail" src="images/artwork8.jpg" alt="Artwork 8" />
-        <img class="thumbnail" src="images/artwork9.jpg" alt="Artwork 9" />
-        <img class="thumbnail" src="images/artwork10.jpg" alt="Artwork 10" />
-	<img class="thumbnail" src="images/artwork11.jpg" alt="Artwork 11" />
-	<img class="thumbnail" src="images/artwork12.jpg" alt="Artwork 12" /> 
-	<img class="thumbnail" src="images/artwork13.jpg" alt="Artwork 13" />
-	<img class="thumbnail" src="images/artwork14.jpg" alt="Artwork 14" />
-	<img class="thumbnail" src="images/artwork15.jpg" alt="Artwork 15" />
-	<img class="thumbnail" src="images/artwork16.jpg" alt="Artwork 16" />
-	<img class="thumbnail" src="images/artwork17.jpg" alt="Artwork 17" />
-	<img class="thumbnail" src="images/artwork18.jpg" alt="Artwork 18" />
-	<img class="thumbnail" src="images/artwork19.jpg" alt="Artwork 19" />
+        <!-- Wrap each thumbnail in protected-image -->
+        <div class="protected-image"><img src="images/artwork1.jpg" alt="Artwork 1" class="thumbnail" /></div>
+        <div class="protected-image"><img src="images/artwork2.jpg" alt="Artwork 2" class="thumbnail" /></div>
+        <div class="protected-image"><img src="images/artwork3.jpg" alt="Artwork 3" class="thumbnail" /></div>
+        <div class="protected-image"><img src="images/artwork4.jpg" alt="Artwork 4" class="thumbnail" /></div>
+        <div class="protected-image"><img src="images/artwork5.jpg" alt="Artwork 5" class="thumbnail" /></div>
+        <div class="protected-image"><img src="images/artwork6.jpg" alt="Artwork 6" class="thumbnail" /></div>
+        <div class="protected-image"><img src="images/artwork7.jpg" alt="Artwork 7" class="thumbnail" /></div>
+        <div class="protected-image"><img src="images/artwork8.jpg" alt="Artwork 8" class="thumbnail" /></div>
+        <div class="protected-image"><img src="images/artwork9.jpg" alt="Artwork 9" class="thumbnail" /></div>
+        <div class="protected-image"><img src="images/artwork10.jpg" alt="Artwork 10" class="thumbnail" /></div>
+        <div class="protected-image"><img src="images/artwork11.jpg" alt="Artwork 11" class="thumbnail" /></div>
+        <div class="protected-image"><img src="images/artwork12.jpg" alt="Artwork 12" class="thumbnail" /></div>
+        <div class="protected-image"><img src="images/artwork13.jpg" alt="Artwork 13" class="thumbnail" /></div>
+        <div class="protected-image"><img src="images/artwork14.jpg" alt="Artwork 14" class="thumbnail" /></div>
+        <div class="protected-image"><img src="images/artwork15.jpg" alt="Artwork 15" class="thumbnail" /></div>
+        <div class="protected-image"><img src="images/artwork16.jpg" alt="Artwork 16" class="thumbnail" /></div>
+        <div class="protected-image"><img src="images/artwork17.jpg" alt="Artwork 17" class="thumbnail" /></div>
+        <div class="protected-image"><img src="images/artwork18.jpg" alt="Artwork 18" class="thumbnail" /></div>
+        <div class="protected-image"><img src="images/artwork19.jpg" alt="Artwork 19" class="thumbnail" /></div>
       </div>
     </main>
   </div>
@@ -164,9 +171,7 @@
     // Open overlay on thumbnail click
     document.querySelectorAll('.thumbnail').forEach(img => {
       img.addEventListener('click', () => {
-        // Assume large images are same name without _thumb suffix
-        const largeSrc = img.src.replace('_thumb', '');
-        overlayImage.src = largeSrc;
+        overlayImage.src = img.src;
         overlayImage.alt = img.alt;
         overlay.style.display = 'flex';
         overlay.setAttribute('aria-hidden', 'false');
@@ -188,9 +193,19 @@
         overlay.setAttribute('aria-hidden', 'true');
       }
     });
+
+    // Disable right-click and drag on all images
+    document.addEventListener('contextmenu', function(e) {
+      if (e.target.tagName === "IMG") e.preventDefault();
+    });
+
+    document.addEventListener('dragstart', function(e) {
+      if (e.target.tagName === "IMG") e.preventDefault();
+    });
   </script>
-<footer class="site-footer">
-  <p>© 2025 Bella Antonova</p>
-</footer>
+
+  <footer class="site-footer">
+    <p>© 2025 Bella Antonova</p>
+  </footer>
 </body>
 </html>
