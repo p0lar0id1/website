@@ -452,10 +452,11 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
 //# sourceURL=https://bellaantonova.com/wp-includes/js/wp-emoji-loader.min.js
 </script>
 <script>
-document.querySelectorAll('a').forEach(link => {
-  if (link.hostname === window.location.hostname) {
+window.addEventListener("load", function () {
+  document.querySelectorAll('a').forEach(link => {
     link.removeAttribute('target');
-  }
+    link.onclick = null;
+  });
 });
 </script>
 	</body>
