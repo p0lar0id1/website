@@ -429,11 +429,11 @@ input[type="submit"]:hover {
 	</div>
 				<div class="ast-mobile-header-content content-align-flex-start ">
 						<div class="ast-builder-menu-mobile ast-builder-menu ast-builder-menu-mobile-focus-item ast-builder-layout-element site-header-focus-item" data-section="section-header-mobile-menu">
-			<div class="ast-main-header-bar-alignment"><div class="main-header-bar-navigation"><nav class="site-navigation ast-flex-grow-1 navigation-accessibility" id="ast-mobile-site-navigation" aria-label="Site Navigation" itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope"><div id="ast-hf-mobile-menu" class="main-navigation"><ul class="main-header-menu ast-nav-menu ast-flex  submenu-with-border astra-menu-animation-fade  stack-on-mobile"><li class="page_item page-item-94 menu-item"><a href="/about/" class="menu-link">About</a></li><li class="page_item page-item-141 menu-item"><a href="/contact/" class="menu-link">Contact</a></li><li class="page_item page-item-47 menu-item"><a href="/" class="menu-link">Home</a></li><li class="page_item page-item-115 current-menu-item menu-item current-menu-item"><a href="/terms/" class="menu-link">Terms</a></li><li class="page_item page-item-156 menu-item-has-children menu-item menu-item-has-children"><a href="/works/" class="menu-link">Works<span role="button" class="dropdown-menu-toggle ast-header-navigation-arrow" tabindex="0" aria-expanded="false" aria-haspopup="true"><span class="ast-icon icon-arrow"><svg class="ast-arrow-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="26px" height="16.043px" viewbox="57 35.171 26 16.043" enable-background="new 57 35.171 26 16.043" xml:space="preserve">
-                <path d="M57.5,38.193l12.5,12.5l12.5-12.5l-2.5-2.5l-10,10l-10-10L57.5,38.193z"></path>
-                </svg></span></span></a><button class="ast-menu-toggle" aria-expanded="false" aria-haspopup="true" aria-label="Toggle menu"><svg class="ast-arrow-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="26px" height="16.043px" viewbox="57 35.171 26 16.043" enable-background="new 57 35.171 26 16.043" xml:space="preserve">
-                <path d="M57.5,38.193l12.5,12.5l12.5-12.5l-2.5-2.5l-10,10l-10-10L57.5,38.193z"></path>
-                </svg></button><ul class="children sub-menu"><li class="page_item page-item-253 menu-item"><a href="/works/she-carries-the-night/" class="menu-link">She carries the night</a></li><li class="page_item page-item-186 menu-item"><a href="/works/she-is-enough/" class="menu-link">She Is Enough</a></li><li class="page_item page-item-247 menu-item"><a href="/works/still-becoming/" class="menu-link">Still becoming</a></li><li class="page_item page-item-242 menu-item"><a href="/works/the-quiet-core/" class="menu-link">The quiet core</a></li><li class="page_item page-item-231 menu-item"><a href="/works/what-was-and-what-comes/" class="menu-link">What was and what comes</a></li><li class="page_item page-item-259 menu-item"><a href="/works/where-she-moves-without-weight/" class="menu-link">Where she moves without weight</a></li></ul></li></ul></div></nav></div></div>		</div>
+			<div class="ast-main-header-bar-alignment"><div class="main-header-bar-navigation"><nav class="site-navigation ast-flex-grow-1 navigation-accessibility site-header-focus-item" id="ast-mobile-site-navigation" aria-label="Site Navigation: Primary meny" itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope"><div class="main-navigation"><ul id="ast-hf-mobile-menu" class="main-header-menu ast-nav-menu ast-flex  submenu-with-border astra-menu-animation-fade  stack-on-mobile"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-167"><a href="/works/" class="menu-link">Works</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-131"><a href="/about/" class="menu-link">About</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-152"><a href="/contact/" class="menu-link">Contact</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-115 current_page_item menu-item-130"><a href="/terms/" aria-current="page" class="menu-link">Terms</a></li>
+</ul></div></nav></div></div>		</div>
 					</div>
 			</div>
 		</header><!-- #masthead -->
@@ -528,7 +528,48 @@ input[type="submit"]:hover {
                 <path d="M57.5,38.193l12.5,12.5l12.5-12.5l-2.5-2.5l-10,10l-10-10L57.5,38.193z"></path>
                 </svg></span>	<span class="screen-reader-text">Scroll to Top</span>
 </div>
-<script id="astra-theme-js-js-extra">
+<script>
+(function () {
+  function fixLinksAndMenu() {
+    /* 1. Stop internal links opening in new tabs */
+    document.querySelectorAll('a').forEach(function(link) {
+      const href = link.getAttribute('href');
+
+      if (!href) return;
+
+      const isInternal =
+        href.startsWith('/') ||
+        href.includes('bellaantonova.com') ||
+        href.includes('localhost');
+
+      if (isInternal) {
+        link.removeAttribute('target');
+        link.removeAttribute('rel');
+        link.setAttribute('target', '_self');
+      }
+    });
+
+    /* 2. Force Works to appear first in Astra menu */
+    document.querySelectorAll('.main-header-menu, .ast-mobile-popup-content .main-header-menu').forEach(function(menu) {
+      const items = Array.from(menu.children);
+
+      const worksItem = items.find(function(item) {
+        const link = item.querySelector('a');
+        return link && link.textContent.trim().toLowerCase() === 'works';
+      });
+
+      if (worksItem) {
+        menu.insertBefore(worksItem, menu.firstElementChild);
+      }
+    });
+  }
+
+  window.addEventListener('load', fixLinksAndMenu);
+
+  const observer = new MutationObserver(fixLinksAndMenu);
+  observer.observe(document.body, { childList: true, subtree: true });
+})();
+</script><script id="astra-theme-js-js-extra">
 var astra = {"break_point":"921","isRtl":"","is_scroll_to_id":"1","is_scroll_to_top":"1","is_header_footer_builder_active":"1","responsive_cart_click":"flyout","is_dark_palette":""};
 //# sourceURL=astra-theme-js-js-extra
 </script>
@@ -537,7 +578,7 @@ var astra = {"break_point":"921","isRtl":"","is_scroll_to_id":"1","is_scroll_to_
 <script src="/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=4.0.3" id="elementor-frontend-modules-js"></script>
 <script src="/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" id="jquery-ui-core-js"></script>
 <script id="elementor-frontend-js-before">
-var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close","a11yCarouselPrevSlideMessage":"Previous slide","a11yCarouselNextSlideMessage":"Next slide","a11yCarouselFirstSlideMessage":"This is the first slide","a11yCarouselLastSlideMessage":"This is the last slide","a11yCarouselPaginationBulletMessage":"Go to slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile Portrait","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":false},"version":"4.0.3","is_static":false,"experimentalFeatures":{"e_font_icon_svg":true,"additional_custom_breakpoints":true,"container":true,"e_pro_free_trial_popup":true,"nested-elements":true,"e_atomic_elements":true,"atomic_widgets_should_enforce_capabilities":true,"editor_mcp":true,"e_bc_migrations":true,"e_classes":true,"global_classes_should_enforce_capabilities":true,"e_variables":true,"e_variables_manager":true,"e_opt_in_v4_page":true,"e_opt_in_v4":true,"e_components":true,"e_interactions":true,"e_widget_creation":true,"import-export-customization":true},"urls":{"assets":"\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"\/wp-admin\/admin-ajax.php","uploadUrl":"\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"5094d090eb","atomicFormsSendForm":"1495533ae0"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":115,"title":"Terms%20-%20Bella%20Antonova","excerpt":"","featuredImage":false}};
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close","a11yCarouselPrevSlideMessage":"Previous slide","a11yCarouselNextSlideMessage":"Next slide","a11yCarouselFirstSlideMessage":"This is the first slide","a11yCarouselLastSlideMessage":"This is the last slide","a11yCarouselPaginationBulletMessage":"Go to slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile Portrait","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":false},"version":"4.0.3","is_static":false,"experimentalFeatures":{"e_font_icon_svg":true,"additional_custom_breakpoints":true,"container":true,"e_pro_free_trial_popup":true,"nested-elements":true,"e_atomic_elements":true,"atomic_widgets_should_enforce_capabilities":true,"editor_mcp":true,"e_bc_migrations":true,"e_classes":true,"global_classes_should_enforce_capabilities":true,"e_variables":true,"e_variables_manager":true,"e_opt_in_v4_page":true,"e_opt_in_v4":true,"e_components":true,"e_interactions":true,"e_widget_creation":true,"import-export-customization":true},"urls":{"assets":"\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"\/wp-admin\/admin-ajax.php","uploadUrl":"\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"9885fb6fa4","atomicFormsSendForm":"172c94c037"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":115,"title":"Terms%20-%20Bella%20Antonova","excerpt":"","featuredImage":false}};
 //# sourceURL=elementor-frontend-js-before
 </script>
 <script src="/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=4.0.3" id="elementor-frontend-js"></script>
