@@ -570,63 +570,6 @@ input[type="submit"]:hover {
                 <path d="M57.5,38.193l12.5,12.5l12.5-12.5l-2.5-2.5l-10,10l-10-10L57.5,38.193z"></path>
                 </svg></span>	<span class="screen-reader-text">Scroll to Top</span>
 </div>
-<script><script>
-document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll('a[target="_blank"]').forEach(function(link) {
-    const href = link.getAttribute("href") || "";
-
-    // Only affect your own site links
-    if (
-      href.startsWith("/") ||
-      href.includes("bellaantonova.com") ||
-      href.includes("localhost")
-    ) {
-      link.removeAttribute("target");
-      link.removeAttribute("rel");
-    }
-  });
-});
-</script>
-(function () {
-  function fixLinksAndMenu() {
-    /* 1. Stop internal links opening in new tabs */
-    document.querySelectorAll('a').forEach(function(link) {
-      const href = link.getAttribute('href');
-
-      if (!href) return;
-
-      const isInternal =
-        href.startsWith('/') ||
-        href.includes('bellaantonova.com') ||
-        href.includes('localhost');
-
-      if (isInternal) {
-        link.removeAttribute('target');
-        link.removeAttribute('rel');
-        link.setAttribute('target', '_self');
-      }
-    });
-
-    /* 2. Force Works to appear first in Astra menu */
-    document.querySelectorAll('.main-header-menu, .ast-mobile-popup-content .main-header-menu').forEach(function(menu) {
-      const items = Array.from(menu.children);
-
-      const worksItem = items.find(function(item) {
-        const link = item.querySelector('a');
-        return link &amp;&amp; link.textContent.trim().toLowerCase() === 'works';
-      });
-
-      if (worksItem) {
-        menu.insertBefore(worksItem, menu.firstElementChild);
-      }
-    });
-  }
-
-  window.addEventListener('load', fixLinksAndMenu);
-
-  const observer = new MutationObserver(fixLinksAndMenu);
-  observer.observe(document.body, { childList: true, subtree: true });
-})();
 <script id="astra-theme-js-js-extra">
 var astra = {"break_point":"921","isRtl":"","is_scroll_to_id":"1","is_scroll_to_top":"1","is_header_footer_builder_active":"1","responsive_cart_click":"flyout","is_dark_palette":""};
 //# sourceURL=astra-theme-js-js-extra
