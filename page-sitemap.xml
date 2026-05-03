@@ -2,72 +2,60 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
 		<loc>/</loc>
-		<lastmod>2026-04-30T22:27:01+00:00</lastmod>
+		<lastmod>2026-05-03T19:51:56+00:00</lastmod>
 		<image:image>
-			<image:loc>/wp-content/uploads/2026/04/Bella-Antonova-She-is-enough-707x1024.jpeg</image:loc>
+			<image:loc>/wp-content/uploads/2026/05/Bella-Antonova-She-is-enough-707x1024.webp</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2026/04/Bella-Antonova-Still-Becoming-719x1024.jpeg</image:loc>
+			<image:loc>/wp-content/uploads/2026/05/Bella-Antonova-Still-Becoming-719x1024.webp</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2026/04/Bella-Antonova-She-Carries-The-Night-697x1024.jpeg</image:loc>
-		</image:image>
-	</url>
-	<url>
-		<loc>/works/</loc>
-		<lastmod>2026-05-03T09:03:25+00:00</lastmod>
-		<image:image>
-			<image:loc>/wp-content/uploads/2026/04/Bella-Antonova-She-is-enough-707x1024.jpeg</image:loc>
-		</image:image>
-		<image:image>
-			<image:loc>/wp-content/uploads/2026/04/Bella-Antonova-The-Quiet-Core-748x1024.jpeg</image:loc>
-		</image:image>
-		<image:image>
-			<image:loc>/wp-content/uploads/2026/04/Bella-Antonova-Still-Becoming-719x1024.jpeg</image:loc>
-		</image:image>
-		<image:image>
-			<image:loc>/wp-content/uploads/2026/04/Bella-Antonova-She-Carries-The-Night-697x1024.jpeg</image:loc>
-		</image:image>
-		<image:image>
-			<image:loc>/wp-content/uploads/2026/04/Bella-Antonova-Where-She-Moves-Without-Weight-717x1024.jpeg</image:loc>
-		</image:image>
-		<image:image>
-			<image:loc>/wp-content/uploads/2026/04/Bella-Antonova-What-Was-And-What-Comes-1024x768.jpeg</image:loc>
+			<image:loc>/wp-content/uploads/2026/05/Bella-Antonova-She-Carries-The-Night-697x1024.webp</image:loc>
 		</image:image>
 	</url>
 	<url>
-		<loc>/works/still-becoming/</loc>
-		<lastmod>2026-04-30T21:56:22+00:00</lastmod>
+		<loc>/works/she-is-enough/</loc>
+		<lastmod>2026-05-03T20:35:13+00:00</lastmod>
 		<image:image>
-			<image:loc>/wp-content/uploads/2026/04/Bella-Antonova-Still-Becoming-719x1024.jpeg</image:loc>
+			<image:loc>/wp-content/uploads/2026/05/Bella-Antonova-She-is-enough-707x1024.webp</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2026/04/Bella-Antonova-Still-Becoming-detail-683x1024.jpeg</image:loc>
+			<image:loc>/wp-content/uploads/2026/05/Bella-Antonova-She-is-enough-detail-683x1024.webp</image:loc>
+		</image:image>
+	</url>
+	<url>
+		<loc>/works/she-carries-the-night/</loc>
+		<lastmod>2026-05-03T20:34:49+00:00</lastmod>
+		<image:image>
+			<image:loc>/wp-content/uploads/2026/05/Bella-Antonova-She-Carries-The-Night-697x1024.webp</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>/wp-content/uploads/2026/05/Bella-Antonova-She-Carries-The-Night-detail-683x1024.webp</image:loc>
 		</image:image>
 	</url>
 	<url>
 		<loc>/works/where-she-moves-without-weight/</loc>
-		<lastmod>2026-04-30T21:54:21+00:00</lastmod>
+		<lastmod>2026-05-03T20:34:24+00:00</lastmod>
 		<image:image>
-			<image:loc>/wp-content/uploads/2026/04/Bella-Antonova-Where-She-Moves-Without-Weight-717x1024.jpeg</image:loc>
+			<image:loc>/wp-content/uploads/2026/05/Bella-Antonova-Where-She-Moves-Without-Weight-717x1024.webp</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2026/04/Bella-Antonova-Where-She-Moves-Without-Weight-detail-683x1024.jpeg</image:loc>
+			<image:loc>/wp-content/uploads/2026/05/Bella-Antonova-Where-She-Moves-Without-Weight-detail-683x1024.webp</image:loc>
 		</image:image>
 	</url>
 	<url>
-		<loc>/works/what-was-and-what-comes/</loc>
-		<lastmod>2026-04-30T21:54:12+00:00</lastmod>
+		<loc>/works/still-becoming/</loc>
+		<lastmod>2026-05-03T20:33:57+00:00</lastmod>
 		<image:image>
-			<image:loc>/wp-content/uploads/2026/04/Hero-image-1024x768.jpeg</image:loc>
+			<image:loc>/wp-content/uploads/2026/05/Bella-Antonova-Still-Becoming-719x1024.webp</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2026/04/Bella-Antonova-What-Was-And-What-Comes-detail-1024x683.png</image:loc>
+			<image:loc>/wp-content/uploads/2026/05/Bella-Antonova-Still-Becoming-detail-683x1024.webp</image:loc>
 		</image:image>
 	</url>
 	<url>
 		<loc>/works/the-quiet-core/</loc>
-		<lastmod>2026-04-30T21:54:03+00:00</lastmod>
+		<lastmod>2026-05-03T20:33:24+00:00</lastmod>
 		<image:image>
 			<image:loc>/wp-content/uploads/2026/04/Bella-Antonova-The-Quiet-Core-748x1024.jpeg</image:loc>
 		</image:image>
@@ -76,32 +64,44 @@
 		</image:image>
 	</url>
 	<url>
-		<loc>/works/she-is-enough/</loc>
-		<lastmod>2026-04-30T21:53:54+00:00</lastmod>
+		<loc>/works/what-was-and-what-comes/</loc>
+		<lastmod>2026-05-03T20:32:58+00:00</lastmod>
 		<image:image>
-			<image:loc>/wp-content/uploads/2026/04/Bella-Antonova-She-is-enough-707x1024.jpeg</image:loc>
+			<image:loc>/wp-content/uploads/2026/05/Bella-Antonova-What-Was-And-What-Comes-1024x768.webp</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>/wp-content/uploads/2026/04/Bella-Antonova-She-is-enough-detail-683x1024.jpeg</image:loc>
-		</image:image>
-	</url>
-	<url>
-		<loc>/works/she-carries-the-night/</loc>
-		<lastmod>2026-04-30T21:53:49+00:00</lastmod>
-		<image:image>
-			<image:loc>/wp-content/uploads/2026/04/Bella-Antonova-She-Carries-The-Night-697x1024.jpeg</image:loc>
-		</image:image>
-		<image:image>
-			<image:loc>/wp-content/uploads/2026/04/Bella-Antonova-She-Carries-The-Night-detail-683x1024.jpeg</image:loc>
+			<image:loc>/wp-content/uploads/2026/05/Bella-Antonova-What-Was-And-What-Comes-detail-1024x683.webp</image:loc>
 		</image:image>
 	</url>
 	<url>
 		<loc>/contact/</loc>
-		<lastmod>2026-04-30T21:38:42+00:00</lastmod>
+		<lastmod>2026-05-03T20:08:47+00:00</lastmod>
+	</url>
+	<url>
+		<loc>/works/</loc>
+		<lastmod>2026-05-03T20:00:51+00:00</lastmod>
+		<image:image>
+			<image:loc>/wp-content/uploads/2026/05/Bella-Antonova-She-is-enough-707x1024.webp</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>/wp-content/uploads/2026/05/Hero-image-1024x768.webp</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>/wp-content/uploads/2026/05/Bella-Antonova-The-Quiet-Core-748x1024.webp</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>/wp-content/uploads/2026/05/Bella-Antonova-Still-Becoming-719x1024.webp</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>/wp-content/uploads/2026/05/Bella-Antonova-She-Carries-The-Night-697x1024.webp</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>/wp-content/uploads/2026/05/Bella-Antonova-Where-She-Moves-Without-Weight-717x1024.webp</image:loc>
+		</image:image>
 	</url>
 	<url>
 		<loc>/about/</loc>
-		<lastmod>2026-04-30T21:36:20+00:00</lastmod>
+		<lastmod>2026-05-03T19:55:18+00:00</lastmod>
 		<image:image>
 			<image:loc>/wp-content/uploads/2026/04/artist_photo.jpg</image:loc>
 		</image:image>
