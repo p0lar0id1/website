@@ -56,20 +56,23 @@ __( `class %s removed`, 'elementor' );
 __( 'Class', 'elementor' );
 /* translators: %s is the class name. */
 __( `%s created`, 'elementor' );
+__( 'Some classes are missing', 'elementor' );
+__( 'A class was removed from your site and is no longer active on this element', 'elementor' );
 __( 'Local Class', 'elementor' );
+__( 'Duplicate', 'elementor' );
 __( 'local', 'elementor' );
 __( 'Classes', 'elementor' );
 __( 'Type class name', 'elementor' );
 __( 'With your current role, you can use existing classes but can’t modify them.', 'elementor' );
 __( 'Sorry, nothing matched', 'elementor' );
+__( 'Clear & try again', 'elementor' );
 __( 'With your current role,', 'elementor' );
 __( 'you can only use existing classes.', 'elementor' );
-__( 'Clear & try again', 'elementor' );
 /* translators: %s is the maximum number of classes */
-__(
-					'You’ve reached the limit of %s classes. Please remove an existing one to create a new class.',
-					'elementor'
-				);
+__( 'Limit of %s classes reached', 'elementor' );
+__( 'Remove a class to create a new one.', 'elementor' );
+__( 'Clear', 'elementor' );
+__( 'Class Manager', 'elementor' );
 __( 'normal', 'elementor' );
 __( 'hover', 'elementor' );
 __( 'focus', 'elementor' );
@@ -78,11 +81,12 @@ __( 'States', 'elementor' );
 /* translators: %s: Element type title. */
 __( '%s States', 'elementor' );
 __( 'selected', 'elementor' );
+__( 'disabled', 'elementor' );
 __( 'With your current role, you can only use existing states.', 'elementor' );
 __( 'Has style', 'elementor' );
 __( 'Remove', 'elementor' );
 __(
-					'With your current role, you can use existing classes but can’t modify them.',
+					"With your current role, you can use existing classes but can't modify them.",
 					'elementor'
 				);
 __( 'Rename', 'elementor' );
@@ -140,25 +144,12 @@ __( 'Column gap', 'elementor' );
 __( 'Columns', 'elementor' );
 __( 'Margin', 'elementor' );
 __( 'Padding', 'elementor' );
-__( 'Width', 'elementor' );
-__( 'Height', 'elementor' );
-__( 'Min width', 'elementor' );
-__( 'Min height', 'elementor' );
-__( 'Max width', 'elementor' );
-__( 'Max height', 'elementor' );
-__( 'Aspect Ratio', 'elementor' );
-__( 'Object position', 'elementor' );
-__( 'Overflow', 'elementor' );
-__( 'Visible', 'elementor' );
-__( 'Hidden', 'elementor' );
-__( 'Auto', 'elementor' );
-__( 'Object fit', 'elementor' );
-__( 'Fill', 'elementor' );
-__( 'Cover', 'elementor' );
-__( 'Contain', 'elementor' );
-__( 'None', 'elementor' );
-__( 'Scale down', 'elementor' );
 __( 'Z-index', 'elementor' );
+__( 'Z-index', 'elementor' );
+__(
+					'z-index only works on positioned elements. Change position to relative, absolute, or fixed to enable layering.',
+					'elementor'
+				);
 __( 'Position', 'elementor' );
 __( 'Dimensions', 'elementor' );
 __( 'Position', 'elementor' );
@@ -181,6 +172,7 @@ __( 'Reversed wrap', 'elementor' );
 __( 'Display', 'elementor' );
 __( 'Flex wrap', 'elementor' );
 __( 'Flex child', 'elementor' );
+__( 'Grid child', 'elementor' );
 __( 'Justify content', 'elementor' );
 __( 'Start', 'elementor' );
 __( 'Center', 'elementor' );
@@ -188,6 +180,30 @@ __( 'End', 'elementor' );
 __( 'Space between', 'elementor' );
 __( 'Space around', 'elementor' );
 __( 'Space evenly', 'elementor' );
+__( 'Grid column', 'elementor' );
+__( 'Grid row', 'elementor' );
+__( 'Columns', 'elementor' );
+__( 'Rows', 'elementor' );
+__( 'Show Grid Outline', 'elementor' );
+__( 'Justify items', 'elementor' );
+__( 'Start', 'elementor' );
+__( 'Center', 'elementor' );
+__( 'End', 'elementor' );
+__( 'Stretch', 'elementor' );
+__( 'Auto rows', 'elementor' );
+__( 'Auto columns', 'elementor' );
+__(
+	'Set the size for new rows created automatically when content exceeds the defined grid.',
+	'elementor'
+);
+__(
+	'Set the size for new columns created automatically when content exceeds the defined grid.',
+	'elementor'
+);
+__( 'Auto flow', 'elementor' );
+__( 'Dense', 'elementor' );
+__( 'Row', 'elementor' );
+__( 'Column', 'elementor' );
 __( 'Gaps', 'elementor' );
 __( 'Flex Size', 'elementor' );
 __( 'Grow', 'elementor' );
@@ -211,12 +227,19 @@ __( 'Block', 'elementor' );
 __( 'Block', 'elementor' );
 __( 'Flex', 'elementor' );
 __( 'Flex', 'elementor' );
+__( 'Grid', 'elementor' );
+__( 'Grid', 'elementor' );
+__( 'None', 'elementor' );
+__( 'None', 'elementor' );
 __( 'In-blk', 'elementor' );
 __( 'Inline-block', 'elementor' );
-__( 'None', 'elementor' );
-__( 'None', 'elementor' );
 __( 'In-flx', 'elementor' );
 __( 'Inline-flex', 'elementor' );
+__( 'Align self', 'elementor' );
+__( 'Start', 'elementor' );
+__( 'Center', 'elementor' );
+__( 'End', 'elementor' );
+__( 'Stretch', 'elementor' );
 __( 'Align self', 'elementor' );
 __( 'Start', 'elementor' );
 __( 'Center', 'elementor' );
@@ -301,4 +324,22 @@ __( 'Border bottom right radius', 'elementor' );
 __( 'Adjust corners', 'elementor' );
 __( 'Border color', 'elementor' );
 __( 'Background', 'elementor' );
+__( 'Width', 'elementor' );
+__( 'Height', 'elementor' );
+__( 'Min width', 'elementor' );
+__( 'Min height', 'elementor' );
+__( 'Max width', 'elementor' );
+__( 'Max height', 'elementor' );
+__( 'Aspect Ratio', 'elementor' );
+__( 'Object position', 'elementor' );
+__( 'Overflow', 'elementor' );
+__( 'Visible', 'elementor' );
+__( 'Hidden', 'elementor' );
+__( 'Auto', 'elementor' );
+__( 'Object fit', 'elementor' );
+__( 'Fill', 'elementor' );
+__( 'Cover', 'elementor' );
+__( 'Contain', 'elementor' );
+__( 'None', 'elementor' );
+__( 'Scale down', 'elementor' );
 __( 'Flex direction', 'elementor' );
